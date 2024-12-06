@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/envio.css">
+    <link rel="icon" href="img/icono.ico" type="image/x-icon">
+    <title>Cotización de envío</title>
+</head>
+<body>
+    <!-- Modal -->
+    <div id="customModal" class="modal fade" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content position-relative">
+            <!-- Cuerpo del modal -->
+            <div class="modal-body text-center p-4">
+            <!-- Ícono -->
+            <div class="icon-container mb-3">
+                <i class="bi bi-megaphone-fill" style="font-size: 3rem; color: #608BC1;"></i>
+            </div>              
+            <h2 class="modal-title mb-3">¡Mantente seguro con EnviosYa!</h2>
+            <p class="modal-text">
+                Protégete del fraude aprendiendo a reconocer y evitar estafas. Para obtener más información sobre cómo proteger tus datos, visita nuestra página de prevención de fraudes.
+            </p>
+            <!-- Enlace -->
+            <a href="#" class="modal-link d-block mt-3 text-decoration-none">Más información sobre la prevención del fraude</a>
+            <p class="modal-footer-text mt-3 text-muted">¡Tu seguridad nos importa!</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Formulario de Cotización -->
+    <div class="container my-5">
+        <h1 class="text-center">Cotización de Envío</h2>
+        <form id="quoteForm" class="my-4">
+            <!-- Selección de País y Ciudad de Origen -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="originCountry" class="form-label">País de Origen</label>
+                    <select id="originCountry" class="form-select" onchange="updateCities('origin')" required>
+                        <option value="">Seleccione un país</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Perú">Perú</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Venezuela">Venezuela</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="originCity" class="form-label">Ciudad de Origen</label>
+                    <select id="originCity" class="form-select" required>
+                        <option value="">Seleccione una ciudad</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Selección de País y Ciudad de Destino -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="destinationCountry" class="form-label">País de Destino</label>
+                    <select id="destinationCountry" class="form-select" onchange="updateCities('destination')" required>
+                        <option value="">Seleccione un país</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Perú">Perú</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Venezuela">Venezuela</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="destinationCity" class="form-label">Ciudad de Destino</label>
+                    <select id="destinationCity" class="form-select" required>
+                        <option value="">Seleccione una ciudad</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Información de Peso y Dimensiones -->
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label for="weight" class="form-label">Peso (kg)</label>
+                    <input type="number" class="form-control" id="weight" placeholder="Peso en kg" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="length" class="form-label">Largo (cm)</label>
+                    <input type="number" class="form-control" id="length" placeholder="Largo en cm" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="width" class="form-label">Ancho (cm)</label>
+                    <input type="number" class="form-control" id="width" placeholder="Ancho en cm" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="height" class="form-label">Alto (cm)</label>
+                    <input type="number" class="form-control" id="height" placeholder="Alto en cm" required>
+                </div>
+            </div>
+            <!-- Selección de Fechas -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="shippingDate" class="form-label">Fecha de Envío</label>
+                    <input type="date" class="form-control" id="shippingDate" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="deliveryDate" class="form-label">Fecha de Entrega</label>
+                    <input type="date" class="form-control" id="deliveryDate" required>
+                </div>
+            </div>
+            <!-- Selección de Tipo de Servicio -->
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label for="serviceType" class="form-label">Tipo de Servicio</label>
+                    <select class="form-select" id="serviceType">
+                        <option value="express">Express</option>
+                        <option value="standard">Estándar</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" class="btn" onclick="calculateQuote()">Calcular Cotización</button>
+        </form>
+        <!-- Reporte chart.js -->
+        <div class="report-section">
+            <h2>Reporte de Costos Promedios de Envíos</h2>
+            <canvas id="averageCostChart"></canvas>
+        </div>  
+        <!-- Guia Tamaños -->
+        <div class="container mt-5">
+            <h4 class="text-center mb-4">¿No está seguro de los tamaños?</h4>
+            <p class="text-center mb-4">Revisa los ejemplos a continuación para obtener una referencia rápida.</p>
+            <div class="row">
+                <!-- Tarjeta Pequeño -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Pequeño</h5>
+                            <p class="card-text"><strong>Dimensiones:</strong> 20 x 15 x 10 cm</p>
+                            <p class="card-text"><strong>Peso:</strong> Hasta 1 kg</p>
+                            <p class="card-text">Ideal para artículos pequeños como libros, ropa ligera, accesorios.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta Mediano -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Mediano</h5>
+                            <p class="card-text"><strong>Dimensiones:</strong> 40 x 30 x 20 cm</p>
+                            <p class="card-text"><strong>Peso:</strong> 1-5 kg</p>
+                            <p class="card-text">Perfecto para ropa, electrónicos pequeños, artículos de decoración.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta Grande -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Grande</h5>
+                            <p class="card-text"><strong>Dimensiones:</strong> 60 x 40 x 30 cm</p>
+                            <p class="card-text"><strong>Peso:</strong> 5-10 kg</p>
+                            <p class="card-text">Ideal para electrodomésticos pequeños, herramientas, paquetes grandes de ropa.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta Extra Grande -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Extra Grande</h5>
+                            <p class="card-text"><strong>Dimensiones:</strong> 80 x 60 x 50 cm</p>
+                            <p class="card-text"><strong>Peso:</strong> 10-20 kg</p>
+                            <p class="card-text">Recomendado para electrodomésticos grandes, equipos deportivos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Notas Referenciales -->
+            <div class="alert alert-info mt-4 text-center" role="alert">
+                <strong>Nota:</strong> Estas son referencias aproximadas. Mide tu paquete para mayor precisión.
+            </div>
+        </div>        
+        <!-- Resultado de la Cotización -->
+        <div id="quoteResult" class="alert alert-info d-none" role="alert">
+            <h2 class="alert-heading">Resultado de la Cotización</h2>
+            <p id="quoteDetails"></p>
+            <button type="button" class="btn" onclick="saveQuote()">Guardar Cotización</button>
+        </div>
+        <!-- Resultado de guardado localStorage -->
+        <div id="localStorageResult" class="alert alert-info d-none" role="alert">
+            <h2 class="alert-heading">Resultado de cotización guardada</h2>
+            <p id="localStorageDetails"></p>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/envio.js"></script>
+</body>
+</html>

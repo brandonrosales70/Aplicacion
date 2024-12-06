@@ -1,0 +1,131 @@
+/* Cuerpo */
+body {
+    font-family: sans-serif;
+    background-color: #F5F5F5;
+}
+
+/* Titulos */
+h1 {
+    margin-top: 20px;
+    color: #133E87;
+    font-weight: bold;
+}
+
+/* Subtitulos */
+h2 {
+    font-weight: bold;
+}
+
+/* Botones */
+.btn {
+    background-color: #608BC1;
+    color: #FFFFFF;
+}
+
+.btn:hover {
+    background-color: #133E87;
+    color: #FFFFFF
+}
+
+/* Etiquetas del Formulario */
+#quoteForm label {
+    font-weight: bold;
+}
+
+/* Reporte chart.js */
+.report-section {
+    width: 400px; 
+    height: 300px; 
+    max-width: 100%; 
+    margin: 0 auto; 
+    display: block;
+}
+
+.report-section h2 {
+    font-size: 1.5em;
+    color: #133E87;
+}
+
+/* Tarjetas */
+.card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #608BC1;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Nota */
+.alert-info {
+    background-color: #e9f7ff;
+    color: #133E87;
+    border-radius: 10px;
+}
+
+/* Tarjeta de Resultado */
+#quoteResult {
+    margin-top: 20px;
+}
+
+/* Modal */
+#customModal .modal-dialog {
+    max-width: 500px; 
+}
+
+#customModal .modal-content {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    overflow: hidden; 
+}
+
+#customModal .modal-body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+#customModal .icon-container img {
+    width: 80px;
+    height: 80px;
+}
+
+#customModal .modal-title {
+    font-size: 1.5rem;
+    color: #133E87; 
+    font-weight: bold;
+}
+
+#customModal .modal-text {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+#customModal .modal-link {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #608BC1; 
+}
+
+#customModal .modal-link:hover {
+    color: #133E87;
+    text-decoration: underline;
+}
+
+#customModal .modal-footer-text {
+    font-size: 0.875rem;
+    color: #A59D84;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Registro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="img/icono.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="contenido-form">
+            <h1 id="title">Registro</h1>
+            <form>
+                <div class="input-grupo" id="nameInput">
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="usuario" id="username">
+                    </div>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" placeholder="email" id="email">
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="contraseña" id="password">
+                </div>
+                <p>Olvidaste tu contraseña <a href="#">click aquí</a> </p>
+                <div class="btn-field">
+                    <button id="signUp" type="button">Registro</button>
+                    <button id="signIn" type="button" class="disable">Login</button>
+                </div>
+                <!-- Botones para acciones específicas -->
+                <div class="btn-action">
+                    <button id="registerBtn" type="button" >Registrar</button>
+                    <button id="loginBtn" type="button" class="hidden">Iniciar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+h1 {font-size: 3.5em;}
+h2 {font-size: 2.7em;}
+h3 {font-size: 2em;}
+p {font-size: 1.25em;}
+ul {list-style: none;}
+li {font-size: 1.25em;}
+
+.acentuacion {
+    color: #133E87;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+button {
+    font-size: 1.25em;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#button-hero {
+    background-color: #133E87;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    color: #FFFFFF
+}
+
+#button-hero:hover {
+    background-color: #608BC1;
+}
+
+.button-carta {
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    background-color: #F3F3E0;
+    color: #133E87;
+}
+
+.button-carta:hover {
+    color: #000000;
+}
+
+header {
+    background-color: #F3F3E0;
+    z-index: 2;
+}
+
+header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header .logo-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header .logo {
+    margin: 0;
+    padding: 20px 0px;
+    font-size: 1.5em;
+    color: #133E87;
+    cursor: pointer;
+}
+
+header .logo:hover {
+    font-weight: bold;
+}
+
+header .img-container {
+    background-image: url("../img/logo.png");
+    background-size: cover; 
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+header a {
+    padding: 5px 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #608BC1;
+}
+
+header a:hover {
+    color: #000000;
+}
+
+#hero {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 90vh;
+    color: #F3F3E0;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    , url("../img/hero.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    filter: blur(4px); 
+    animation: desvanecer 4s ease forwards; 
+}
+
+@keyframes desvanecer {
+    to {
+      filter: blur(0); 
+    }
+}
+
+#quienes-somos .container{
+    background-color: #F3F3E0;
+    text-align: center;
+    padding: 80px 15px;
+}
+
+#mas-de-enviosya {
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+#mas-de-enviosya .container {
+    padding: 150px 12px;
+}
+
+#mas-de-enviosya h2{
+    padding-top: 0;
+}
+
+#mas-de-enviosya h3{
+    color: #FFFFFF;
+}
+
+#mas-de-enviosya p {
+    display: none;
+}
+
+#mas-de-enviosya .carta {
+    background-size: cover;
+    background-position: center center;
+    padding: 20px 50px 70px 50px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.carta:first-child {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    , url("../img/carta1.jpg");
+}
+
+.carta:nth-child(2) {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    , url("../img/carta2.jpg");
+}
+
+.carta:nth-child(3) {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    , url("../img/carta3.jpg");
+}
+
+footer .container{
+    background-color: #F3F3E0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.seccion-footer h3 {
+    font-size: 1.25em;
+    color: #133E87;
+    border-bottom: 3px solid #FFFFFF;
+    padding-bottom: 5px;
+}
+
+.seccion-footer ul li {
+    margin: 5px 0;
+}
+
+.seccion-footer ul li a {
+    font-size: 0.75em;
+    color: #333;
+    text-decoration: none;
+}
+
+.seccion-footer ul li a:hover {
+    color: #608BC1;
+    text-decoration: underline;
+}
+
+.seccion-footer img {
+    width: 25px;
+    height: 25px;
+}
+
+.seccion-footer .seleccion {
+    display: flex;
+    align-items: center;
+}
+
+.seccion-footer select {
+    margin-left: 4px;
+}
+
+.copyright {
+    background-color: #133E87;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 25px;
+}    
+
+@media (min-width: 720px) {
+    header {
+        position: fixed;
+        width: 100%;
+    }
+
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: 40px;
+        margin-right: 20px;
+    }
+
+    header nav {
+        flex-direction: row;
+        padding-bottom: 0;
+    }
+
+    #quienes-somos .container {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 100px 10px
+    }
+
+    #quienes-somos .img-container {
+        background-size: cover;
+        background-position: center center;
+        width: 500px;
+        height: 350px;
+    }
+    
+    #quienes-somos .img-container:first-child {
+        background-image: linear-gradient(
+            0deg,
+            rgba(0,0,0,0.25),
+            rgba(0,0,0,0.25)
+        )
+        , url("../img/quienes-somos1.jpg");
+    }
+
+    #quienes-somos .img-container:nth-child(2) {
+        background-image: linear-gradient(
+            0deg,
+            rgba(0,0,0,0.25),
+            rgba(0,0,0,0.25)
+        )
+        , url("../img/quienes-somos2.jpg");
+    }
+
+    #quienes-somos .texto {
+        width: 35%;
+        max-width: 600px;
+        padding-left: 25px;
+        padding-right: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #mas-de-enviosya .container {
+        padding: 60px 30px 0 30px;
+    }
+
+    #mas-de-enviosya .cartas {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0 20px 0 20px;
+    }
+
+    #mas-de-enviosya .carta {
+        background-size: 100% 40%;
+        background-position: top; 
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 470px;
+        padding: 10px 15px;
+        margin: 20px;
+        border-radius: 10px;
+    }
+
+    #mas-de-enviosya h3 {
+        font-size: 1.75em;
+        padding-top: 5%;
+    }
+
+    #mas-de-enviosya p {
+        display: block;
+        font-size: 1.5em;
+        margin: 0px;
+        padding: 40px 60px;
+    }
+
+    #mas-de-enviosya .p-carta {
+        padding: 110px 10px 20px 10px;
+        font-size: 0.9em;
+    }
+
+    .button-carta {
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        font-size: 1em;
+    }
+    
+    footer .container {
+        flex-direction: row;
+        padding: 10px 30px;
+    }
+
+    footer .seccion-footer {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .seccion-footer h3 {
+        font-size: 1.1em;
+    }
+    
+    .seccion-footer ul {
+        padding-inline-start: 20px;
+    }
+
+    .seccion-footer ul li a {
+        font-size: 0.75em;
+    }
+}
